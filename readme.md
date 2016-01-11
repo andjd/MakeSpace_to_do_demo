@@ -2,7 +2,7 @@
 
 ####A simple browser based to do app built in JavaScript and Backbone
 
-###Live: [to do app](andrew.defran.co/MakeSpace_to_do_demo)
+###Live: [to do app](http://andrew.defran.co/MakeSpace_to_do_demo)
 
 Features:
   + Allows user to create, read, complete, and destroy to dos.
