@@ -1,8 +1,9 @@
-###To Do List Demo App
+##To Do List Demo App
 
-#A simple browser based to do app build in JavaScript and Backbone
+####A simple browser based to do app build in JavaScript and Backbone
 
-##Live: andrew.defran.co/MakeSpace_to_do_demo
+###Live: [app]
+[app][andrew.defran.co/MakeSpace_to_do_demo]
 
 Features:
   Allows user to create, read, complete, and destroy to dos.
