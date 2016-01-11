@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MakeSpace ToDo</title>
+    <script src="./jquery-2.1.4.js" type="application/javascript"></script>
+    <script src="./underscore.js" type="application/javascript"></script>
+    <script src="./backbone.js" type="application/javascript"></script>
+
+    <script src="./models/item.js" type="application/javascript"></script>
+    <script src="./collections/items.js" type="application/javascript"></script>
+    <script src="./views/items.js" type="application/javascript"></script>
+    <script src="./to-dos.js" type="application/javascript"></script>
+
+    <link href="./to-dos.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="content">
+      <h1>To Do List</h1>
+      <form class="text-with-r-button group" id="add-to-do" action:"/#">
+        <input type="text" placeholder="Add To Do" />
+        <button type="submit">Add Item</button>
+      </form>
+      <ul class="items">
+      </ul>
+      <footer class="group">
+        <aside>Items Left: <span class="items-left">0</span></aside>
+        <ul class="footer-buttons">
+          <li><button class="complete-all text-btn">mark all as complete</button></li>
+          <li><button class="clear-completed text-btn-danger">clear completed items</button></li>
+      </footer>
+    </div>
+
+  </body>
+</html>
