@@ -20,12 +20,12 @@
     initialize: function(options){
       this.el = '.items';
       this.$el = $(".items");
-      this.listenTo(this.collection, "all", this.render);
+      this.listenTo(this.collection, "all", this.animateAndRender);
       this.delegateEvents();
     },
 
     template: function () {
-      return _template({items: this.collection.models});
+      return _template({items: this.collection.sortedModels()});
     },
 
     events: {
@@ -46,6 +46,53 @@
       var item = this.collection.get(e.currentTarget.parentElement.id);
       // item.delete;
       this.collection.remove(item);
+
+    },
+
+    animateAndRender: function() {
+      var currentItems = _(this.$el.children()).map(function(domItem){
+        return domItem.id;
+      });
+      var nextItems = _(this.collection.sortedModels()).map(function(item){
+        return item.cid;
+      });
+
+
+      var animating = false;
+      _(currentItems).each(function(itemID, currentIndex){
+        var nextIndex = nextItems.indexOf(itemID);
+        var a = this.animateItem(itemID, currentIndex, nextIndex);
+        if (a) {animating = true;}
+      }.bind(this));
+
+      // Delays re-render if animations are happening
+      setTimeout(this.render.bind(this), (animating) ? 355 : 0);
+    },
+
+    animateItem: function(itemID, prev, next) {
+      var $item = $("#" + itemID);
+      // item is being deleated
+      if (next === -1) {
+        $item.addClass("remove behind");
+        return true;
+      }
+      var difference = next - prev;
+      switch (difference) {
+        case 1:
+          $item.addClass("going-down behind");
+          return true;
+        case -1:
+          $item.addClass("going-up");
+          return true;
+        case 0:
+          return false;
+        default:
+          if (difference > 1) {
+            $item.addClass("behind");
+          }
+          $item.css({"top": String(difference * 40) + "px"});
+          return true;
+      }
 
     },
 

@@ -90,11 +90,15 @@ h1 {
   box-sizing: padding-box;
   display: block;
   float: left;
-  width: calc(100% - 161px);
+  width: calc(100% - 171px);
   border: 2px solid lightgrey;
   border-right: none;
   border-radius: 5px 0 0 5px;
-  padding: 5px;
+  padding: 5px 10px;
+}
+
+.text-with-r-button > input:focus {
+  border-color: yellowgreen;
 }
 
 .text-with-r-button > button {
@@ -103,8 +107,8 @@ h1 {
   float: right;
   width: 125px;
   text-align: center;
-  background-color: green;
-  border: 2px solid green;
+  background-color: yellowgreen;
+  border: 2px solid yellowgreen;
   border-radius: 0 5px 5px 0;
   color: white;
   padding: 5px 10px;
@@ -118,19 +122,39 @@ margin: 10px 0;
 .items > li {
   position: relative;
   padding: 5px 20px;
-  height: 30px;
+  height: 28px;
   top: 0;
-  transition: top 350ms ease;
-
+  width: calc(100% - 40px);
+  overflow: hidden;
+  border-bottom: 1px solid yellowgreen;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: width 250ms ease, padding 250ms ease, top 350ms ease;
 }
-.item-going-up{
+
+.items > li:first-child {
+  border-top: 1px solid yellowgreen;
+}
+/* Classes used for animations*/
+.items > .going-up {
   top: -40px;
 }
 
-.item-going-down {
-  transition: top 450ms easeOutBounce;
+.items > .going-down {
+  top: 40px;
+}
+
+
+.items > .behind {
   z-index: -1;
 }
+
+.items > .remove {
+  width: 0;
+  padding: 5px 0;
+}
+/*For alternating color backgrounds.*/
+/*Disracting when combined with animations.*/
+/*
 .items > li:nth-child(odd){
   background-color: greenyellow;
 }
@@ -138,6 +162,7 @@ margin: 10px 0;
 .items > li:nth-child(even){
   background-color: white;
 }
+*/
 
 .items input {
   margin-right: 10px;
@@ -183,16 +208,16 @@ footer > aside {
 }
 
 .footer-buttons button {
-  /* Following the Google convention regarding text-only buttons*/
+  /* Following the Google convention to set off text-only buttons*/
   text-transform: uppercase;
 }
 
 .text-btn:hover {
-  color: green;
+  color: yellowgreen;
 }
 
 .text-btn:active {
-  color: darkgreen;
+  color: olivedrab;
 }
 
 .text-btn-danger:hover {

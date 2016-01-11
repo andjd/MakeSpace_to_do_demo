@@ -8,6 +8,19 @@
     model: º.Models.Item,
     // url: "api/items",
 
+    sortedModels: function() {
+      var yetToDo = [];
+      var done = [];
+      _(this.models).each(function(item){
+        if (item.attributes.checked) {
+          done.push(item);
+        } else {
+          yetToDo.push(item);
+        }
+      });
+      return yetToDo.concat(done);
+    },
+
     completeAll: function(e) {
       e.preventDefault();
       this.models.forEach(function(item){
