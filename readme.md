@@ -1,6 +1,6 @@
 ##To Do List Demo App
 
-####A simple browser based to do app build in JavaScript and Backbone
+####A simple browser based to do app built in JavaScript and Backbone
 
 ###Live: [to do app](andrew.defran.co/MakeSpace_to_do_demo)
 
