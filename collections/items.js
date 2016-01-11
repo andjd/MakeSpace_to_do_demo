@@ -8,6 +8,7 @@
     model: º.Models.Item,
     // url: "api/items",
 
+    // Sorts unfinished to-dos on top
     sortedModels: function() {
       var yetToDo = [];
       var done = [];

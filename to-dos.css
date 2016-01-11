@@ -1,3 +1,4 @@
+
 body,
 div,
 h1,
@@ -114,6 +115,11 @@ h1 {
   padding: 5px 10px;
 }
 
+.text-with-r-button > button:active {
+  background-color: olivedrab;
+  border-color: olivedrab;
+}
+
 .items {
 min-height: 170px;
 margin: 10px 0;
@@ -129,6 +135,11 @@ margin: 10px 0;
   border-bottom: 1px solid yellowgreen;
   background-color: rgba(255, 255, 255, 0.9);
   transition: width 250ms ease, padding 250ms ease, top 350ms ease;
+}
+
+.items > .checked {
+  color: rgba(0, 0, 0, .60);
+  text-decoration: line-through;
 }
 
 .items > li:first-child {
@@ -153,7 +164,7 @@ margin: 10px 0;
   padding: 5px 0;
 }
 /*For alternating color backgrounds.*/
-/*Disracting when combined with animations.*/
+/*Distracting when combined with animations.*/
 /*
 .items > li:nth-child(odd){
   background-color: greenyellow;
@@ -172,15 +183,15 @@ margin: 10px 0;
   color: indianred;
   display: none;
   float: right;
+  text-decoration: none;
 }
 
-.items > li:hover > button {
+.items > li:hover > .delete-item {
   display: block;
 }
 
 footer {
   width: calc(100% - 10px);
-  /*max-width: 100%;*/
   display: block;
   border-top: 2px solid lightgrey;
   font-size: 16px;

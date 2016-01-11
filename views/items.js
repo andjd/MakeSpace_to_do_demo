@@ -7,7 +7,7 @@
   // template for each to do item.  Template is embedded here for brevity.
   var _template =  _.template(
     '<% for (var i = 0; i < items.length; i++) { %>' +
-    '  <li id="<%= items[i].cid %>">' +
+    '  <li id="<%= items[i].cid %>" class="<%= (items[i].attributes.checked) ? "checked" : "unchecked" %>">' +
     '    <input class="checkbox" type="checkbox" <%= (items[i].attributes.checked) ? "checked" : "" %> />' +
     '    <%- items[i].attributes.body %>' + // Underscore .template HTML-escapes this text.
     '    <button class="delete-item text-btn-danger">✕</button>' +
@@ -40,7 +40,6 @@
     },
 
     deleteItem: function(e) {
-
       e.stopPropagation();
       e.preventDefault();
       var item = this.collection.get(e.currentTarget.parentElement.id);
@@ -57,12 +56,12 @@
         return item.cid;
       });
 
-
       var animating = false;
+
       _(currentItems).each(function(itemID, currentIndex){
         var nextIndex = nextItems.indexOf(itemID);
-        var a = this.animateItem(itemID, currentIndex, nextIndex);
-        if (a) {animating = true;}
+        var animatingItem = this.animateItem(itemID, currentIndex, nextIndex);
+        if (animatingItem) {animating = true;}
       }.bind(this));
 
       // Delays re-render if animations are happening
@@ -85,6 +84,7 @@
           $item.addClass("going-up");
           return true;
         case 0:
+          // returns false if item is not being animated
           return false;
         default:
           if (difference > 1) {

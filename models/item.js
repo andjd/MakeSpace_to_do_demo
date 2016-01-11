@@ -6,12 +6,15 @@
 
   º.Models.newItem = function (e) {
     e.preventDefault();
-    var item = new º.Models.Item({body: e.currentTarget.children[0].value, checked: false});
-    º.itemColl.push(item);
+    var text = e.currentTarget.children[0].value;
+    if (text !== "") {
+      var item = new º.Models.Item({body: e.currentTarget.children[0].value, checked: false});
+      º.itemColl.push(item);
+    }
   };
 
   º.Models.Item = Backbone.Model.extend({
-    // urlRoot: 'api/items'
+    // urlRoot: 'api/items',
 
     toggleChecked: function(){
       this.set({checked: (this.attributes.checked) ? false : true});
