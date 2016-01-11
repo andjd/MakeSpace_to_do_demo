@@ -8,7 +8,7 @@
     º.itemView = new º.Views.Items({collection: º.itemColl});
 
     // Seed to-do list with a welcome message.
-    var firstItem = new º.Models.Item({body: "Make your first to-do!", checked: false});
+    var firstItem = new º.Models.Item({body: "Make your first to do!", checked: false});
     º.itemColl.push(firstItem);
 
     // Add jQuery listeners to DOM objects not managed by backbone
@@ -17,7 +17,7 @@
       // clear out text box.
       $("#add-to-do > input").val("");
     });
-    
+
     $(".complete-all").on("click", º.itemColl.completeAll.bind(º.itemColl));
     $(".clear-completed").on("click", º.itemColl.clearCompleted.bind(º.itemColl));
 
